@@ -11,13 +11,10 @@
     function initMap(latitude, longitude) {
       var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: latitude, lng: longitude},
-        zoom: 15
-      });
+        zoom: 15 });
       new google.maps.Marker({
         position: {lat: latitude, lng: longitude},
-        map: map
-      });
-    }
+        map: map });}
 
     function showError(error) {
       var status = document.getElementById('status');
@@ -33,23 +30,19 @@
           break;
         case error.UNKNOWN_ERROR:
           status.textContent = "Ocurrió un error desconocido."
-          break;
-      }
-    }
+          break; } }
 
     function showPosition(position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
       var status = document.getElementById('status');
       status.textContent = `Latitud: ${latitude} , Longitud: ${longitude}`;
-      initMap(latitude, longitude);
-    }
+      initMap(latitude, longitude);}
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-      document.getElementById('status').textContent = "Geolocalización no es soportada por este navegador.";
-    }
+      navigator.geolocation.getCurrentPosition(showPosition, showError); } 
+    else {
+      document.getElementById('status').textContent = "Geolocalización no es soportada por este navegador.";}
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgZh9WRQKYGB77wTfr1rScpToy_6QH8-w"></script>
 </body>
